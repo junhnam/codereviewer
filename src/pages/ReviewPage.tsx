@@ -1,17 +1,18 @@
 import { useLocation } from 'react-router-dom';
 import { DiffViewer } from '../components/DiffViewer';
-import { CommentBox } from '../components/CommentBox'; // ←追加
+import { CommentBox } from '../components/CommentBox';
 
 export default function ReviewPage() {
-  const query = new URLSearchParams(useLocation().search);
-  const level = query.get('level');
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const level = params.get('level') || '1';
 
   return (
-    <div style={{ padding: 32 }}>
-      <h2>レビュー画面です</h2>
-      <p>選択されたレベル: {level}</p>
-      <DiffViewer />    {/* ← ここで差分表示 */}
-      <CommentBox />    {/* ← ここでコメント欄 */}
+    <div>
+      <h2>レビュー画面</h2>
+      <p>選択されたレベル：{level}</p>
+      <DiffViewer level={level} />
+      <CommentBox />
     </div>
   );
 }
