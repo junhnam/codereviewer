@@ -21,7 +21,21 @@ type Props = {
           style={{ width: '100%', height: 80 }}
         />
         <br />
-        <button type="submit">コメント送信</button>
+            <button
+                type="submit"
+                style={{
+                    backgroundColor: "#1976d2",
+                    color: "white",
+                    border: "none",
+                    borderRadius: 6,
+                    padding: "10px 18px",
+                    fontSize: 16,
+                    cursor: "pointer",
+                    marginTop: 8
+                }}
+            >
+                コメント送信
+            </button>
       </form>
     );
   }
