@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+button {
+  background-color: #1976d2;  /* ちょっと青みのある色 */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  margin: 8px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #1565c0;
+  opacity: 0.9;
+}
