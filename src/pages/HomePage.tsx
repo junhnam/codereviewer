@@ -1,17 +1,16 @@
-// src/pages/HomePage.tsx
-
 import { useState } from 'react';
-import { LevelSelector } from '../components/LevelSelector';
 import { useNavigate } from 'react-router-dom';
+import { LevelSelector } from '../components/LevelSelector';
+import { problems } from '../utils/problems';
 
 export default function HomePage() {
-  const [level, setLevel] = useState(1); // レベル state
+  const [level, setLevel] = useState(1);
   const navigate = useNavigate();
 
-  // 「Start Review」ボタン押下時の動作
   const handleStart = () => {
-    // レビュー画面にレベルを渡して遷移
-    navigate(`/review?level=${level}`);
+    const problemSet = problems[level] || problems['1'];
+    const randomIndex = Math.floor(Math.random() * problemSet.length);
+    navigate(`/review?level=${level}&problem=${randomIndex}`);
   };
 
   return (
@@ -22,13 +21,13 @@ export default function HomePage() {
         onClick={handleStart}
         style={{
           marginTop: 24,
-          backgroundColor: "#1976d2",
-          color: "white",
-          border: "none",
+          backgroundColor: '#1976d2',
+          color: 'white',
+          border: 'none',
           borderRadius: 6,
-          padding: "10px 18px",
+          padding: '10px 18px',
           fontSize: 16,
-          cursor: "pointer"
+          cursor: 'pointer',
         }}
       >
         Start Review
